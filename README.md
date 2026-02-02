@@ -14,7 +14,7 @@ base_model:
 </div>
 
 [![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20HF-StepFun/STEP3p5-preview)](https://huggingface.co/stepfun-ai/Step-3.5-Flash/tree/main)
-[![ModelScope](https://img.shields.io/badge/ModelScope-StepFun/STEP3p5-preview)](https://huggingface.co/stepfun-ai/step3p5_preview/tree/main)
+[![ModelScope](https://img.shields.io/badge/ModelScope-StepFun/STEP3p5-preview)](https://modelscope.cn/models/stepfun-ai/Step-3.5-Flash)
 [![Paper](https://img.shields.io/badge/Paper-Arxiv-red)](https://huggingface.co/stepfun-ai/Step-3.5-Flash/tree/main)
 [![Webpage](https://img.shields.io/badge/Webpage-Blog-blue)](https://static.stepfun.com/blog/step-3.5-flash/)
 [![License](https://img.shields.io/badge/License-Apache%202.0-green)]()
