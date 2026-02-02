@@ -404,26 +404,64 @@ claude --version
 
 2. Configure Claude Code.
 
-We support the OpenAI and Anthropic API style for integration into Claude Code.
+  To accommodate diverse workflows in Claude Code, we support both **Anthropic-style** and **OpenAI-style** APIs. 
 
-Note: OpenAI API style here refers to the `chat/completions/` format.
+  **Option A: Anthropic API style**:
 
-We recommend using `claude-code-router`. For details, see [https://github.com/musistudio/claude-code-router](https://github.com/musistudio/claude-code-router).
+  > If you intend to use the **OpenRouter** API, refer to the OpenRouter integration guide.  
 
-After Claude Code is installed, install `claude-code-router` :
+  Step 1: Edit Claude Settings. Update `~/.claude/settings.json`.
+  > You only need to modify the fields shown below. Leave the rest of the file unchanged.
 
-```bash
-# install ccr via npm
-npm install -g @musistudio/claude-code-router
+  ```json
+  {
+  "env": {
+    "ANTHROPIC_API_KEY": "API_KEY_from_StepFun",
+    "ANTHROPIC_BASE_URL": "https://api.stepfun.ai/"
+  },
+  "model": "step-3.5-flash"
+  }
+  ```
+  Step 2: Start Claude Code.
+  Save the file, then start Claude Code. Run `/status` to confirm the model and base URL.
 
-# validate it is installed
-ccr -v
-```
+  ```txt
+  ❯ /status
+  ─────────────────────────────────────────────────────────────────────────────────
+  Settings:  Status   Config   Usage  (←/→ or tab to cycle)
 
-Add the following configurations to `~/.claude-code-router/config.json`.
+  Version: 2.1.1
+  Session name: /rename to add a name
+  Session ID: 676dae61-259d-4eef-8c2f-0f1641600553
+  cwd: /Users/step-test/
+  Auth token: none
+  API key: ANTHROPIC_API_KEY
+  Anthropic base URL: https://api.stepfun.ai/
 
-```json
-{
+  Model: step-3.5-flash
+  Setting sources: User settings
+  ```
+
+  **Option B: OpenAI API style**
+
+  > Note: OpenAI API style here refers to the `chat/completions/` format.
+
+  > We recommend using `claude-code-router`. For details, see [https://github.com/musistudio/claude-code-router](https://github.com/musistudio/claude-code-router).
+
+  After Claude Code is installed, install `claude-code-router` :
+
+  ```bash
+  # install ccr via npm
+  npm install -g @musistudio/claude-code-router
+
+  # validate it is installed
+  ccr -v
+  ```
+
+  Add the following configurations to `~/.claude-code-router/config.json`.
+
+  ```json
+  {
   "PORT": 3456,
   "Providers": [
     {
@@ -443,17 +481,17 @@ Add the following configurations to `~/.claude-code-router/config.json`.
     "longContext": "stepfun-api,step-3.5-flash",
     "webSearch": "stepfun-api,step-3.5-flash"
   }
-}
-```
-You can now start Claude Code:
+  }
+  ```
+  You can now start Claude Code:
 
-```bash
-# Start Claude
-ccr code 
+  ```bash
+  # Start Claude
+  ccr code 
 
-# restart ccr if configs are changed
-ccr restart 
-```
+  # restart ccr if configs are changed
+  ccr restart 
+  ```
 
 #### 7.1.4 Use Step 3.5 Flash on Codex
 1. Install Codex
