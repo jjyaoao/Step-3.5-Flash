@@ -586,7 +586,7 @@ npm --version
 - 扫码即刻加入 👇
 
 <div align="center">
-  <img src="assets/stepfun-wechat-qr.png" alt="WeChat Group QR Code">
+  <img src="assets/stepfun-wechat-qr.png" alt="WeChat Group QR Code" width="200" />
 </div>
 
 ## License
