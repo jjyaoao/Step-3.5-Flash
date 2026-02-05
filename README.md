@@ -39,8 +39,9 @@ base_model:
 - [Quick Start](#5-quick-start)
 - [Local Deployment](#6-local-deployment)
 - [Using Step 3.5 Flash on Agent Platforms](#7-using-step-35-flash-on-agent-platforms)
-- [Known Issues and Future Directions](#8-known-issues-and-future-directions)
-- [Co-Developing the Future](#9-co-developing-the-future)
+- [Cookbooks](#8-cookbooks)
+- [Known Issues and Future Directions](#9-known-issues-and-future-directions)
+- [Co-Developing the Future](#10-co-developing-the-future)
 - [License](#license)
 
 ## 2. Key Capabilities
@@ -553,14 +554,24 @@ When finishing the configuration, run codex in a new Terminal window to start Co
 1. Use the reference environment setup below and configure `MODEL_NAME` to `Step-3.5-Flash`. [https://github.com/stepfun-ai/StepDeepResearch?tab=readme-ov-file#1-environment-setup](https://github.com/stepfun-ai/StepDeepResearch?tab=readme-ov-file#1-environment-setup)
 
 
-## 8. Known Issues and Future Directions
+## 8. Cookbooks
+
+Explore our [Cookbooks](./cookbooks) directory for practical examples and integration guides, including:
+
+- **[Hybrid Local Agent](./cookbooks/hybrid-local-agent-macos)**: Build a local, privacy-first agentic sandbox.
+- **[OpenClaw Integration](./cookbooks/openclaw)**: Deploy and integrate with OpenClaw.
+- **[Roo Code Integration](./cookbooks/roo-code-integration-guide)**: Use Step 3.5 Flash as the backend for Roo Code in VS Code.
+
+Visit the [Cookbooks README](./cookbooks/README.md) for more details and contribution guidelines.
+
+## 9. Known Issues and Future Directions
 
 1. **Token Efficiency**. Step 3.5 Flash achieves frontier-level agentic intelligence but currently relies on longer generation trajectories than Gemini 3.0 Pro to reach comparable quality.
 2. **Efficient Universal Mastery**. We aim to unify generalist versatility with deep domain expertise. To achieve this efficiently, we are advancing variants of on-policy distillation, allowing the model to internalize expert behaviors with higher sample efficiency.
 3. **RL for More Agentic Tasks**. While Step 3.5 Flash demonstrates competitive performance on academic agentic benchmarks, the next frontier of agentic AI necessitates the application of RL to intricate, expert-level tasks found in professional work, engineering, and research.
 4. **Operational Scope and Constraints**. Step 3.5 Flash is tailored for coding and work-centric tasks, but may experience reduced stability during distribution shifts. This typically occurs in highly specialized domains or long-horizon, multi-turn dialogues, where the model may exhibit repetitive reasoning, mixed-language outputs, or inconsistencies in time and identity awareness.
 
-## 9. Co-Developing the Future
+## 10. Co-Developing the Future
 
 We view our roadmap as a living document, evolving continuously based on real-world usage and developer feedback.
 As we work to shape the future of AGI by expanding broad model capabilities, we want to ensure we are solving the right problems. We invite you to be part of this continuous feedback loop—your insights directly influence our priorities.

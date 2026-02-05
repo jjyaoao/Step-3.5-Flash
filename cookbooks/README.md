@@ -2,13 +2,27 @@
 
 Welcome to the Step 3.5 Flash Cookbooks! This directory contains a collection of practical examples, recipes, and guides to help you get the most out of the Step 3.5 Flash reasoning model.
 
-## 📚 What is a Cookbook?
+## What is a Cookbook?
 
 A cookbook is a self-contained project, integration guide, or example that demonstrates how to solve a specific problem or implement a feature using Step 3.5 Flash. 
 
 Whether it's a simple API integration, a guide on connecting with frameworks like LangChain/LlamaIndex, a complex reasoning agent, or a data processing pipeline, cookbooks are designed to be hands-on and easy to follow. We encourage you to add **Integration Guides** here as well, as they serve as excellent "recipes" for developers connecting Step 3.5 Flash with their existing tools.
 
-## 🚀 How to Add a Cookbook
+## Available Cookbooks
+
+Here are the currently available cookbooks and integration guides:
+
+- **[Hybrid Local Agent on MacOS](./hybrid-local-agent-macos)**  
+  Build a fully local, privacy-first Agentic Sandbox on MacOS. This example uses a hybrid architecture with **Step 3.5 Flash** as the "Brain" for complex reasoning and **Qwen 2.5 Coder** as a local "Janitor" for high-volume tasks.
+
+- **[OpenClaw Integration](./openclaw)**  
+  A comprehensive guide for installing, configuring, and deploying **OpenClaw** on MacOS. Learn how to set up the agent platform and integrate it efficiently.
+
+- **[Roo Code Integration](./roo-code-integration-guide)**  
+  A tutorial on configuring **Step 3.5 Flash** as the backend for **Roo Code** (VS Code extension). Combine the reasoning power of Flash with Roo Code's autonomous capabilities for a powerful pair-programming experience.
+
+
+## How to Add a Cookbook
 
 We welcome contributions! If you've built something cool with Step 3.5 Flash, please share it with the community.
 
@@ -18,14 +32,14 @@ We welcome contributions! If you've built something cool with Step 3.5 Flash, pl
 4.  **Write Documentation**: Create a `README.md` inside your directory explaining what the cookbook does and how to run it.
 5.  **Submit a Pull Request**: Push your changes to a branch and open a PR against the main repository.
 
-## � Call for Contributions
+## Call for Contributions
 
 We deeply value our community's creativity! If your cookbook is accepted and merged, we'd love to send you a small gift as a token of our appreciation.
 
 *   **Contact Us**: Please email us at [developer@stepfun.com](mailto:developer@stepfun.com).
 *   **Include**: A link to your merged PR and your mailing address so we can ship your gift!
 
-## �🏗 Basic Structure for a Cookbook
+## Basic Structure for a Cookbook
 
 To ensure consistency, please follow this standard directory structure:
 
@@ -48,7 +62,7 @@ Your cookbook's README should ideally include:
 *   **Usage**: Command to run the example.
 *   **Example Output**: What users should expect to see.
 
-## 🤖 AI Tools for Documentation Refinement
+## AI Tools for Documentation Refinement
 
 To ensure high-quality documentation, we recommend using AI tools to refine your writing before submitting. Here are some prompts you can use to polish your `README.md` and comments.
 

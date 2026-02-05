@@ -1,140 +1,112 @@
-A guide for installing, configuring, and deploying OpenClaw on MacOS (Linux and Windows).
+# OpenClaw + Step 3.5 Flash Setup Guide
 
-## 📋 Prerequisites
+A concise guide for installing, configuring, and deploying OpenClaw on MacOS with **Step 3.5 Flash**.
 
-- **Operating System:** MacOS
-- **Environment:** Node.js (if installing via npm)
+## Prerequisites
 
-## 🚀 Installation
+- **OS:** MacOS (Apple Silicon/Intel)
+- **Runtime:** Node.js (optional, if using npm)
 
-You can install OpenClaw using the official installation script or via npm.
+## Installation
+
+Choose one of the following methods to install OpenClaw:
 
 ### Option 1: Official Script (Recommended)
-
-```Bash
+```bash
 curl -fsSL https://openclaw.ai/install.sh | bash
 ```
 
 ### Option 2: NPM
-
-```Bash
+```bash
 npm i -g openclaw
+# If you encounter permission errors, use sudo
 ```
 
-> **Tip:** If you encounter permission errors, try adding `sudo` before the command.
->
-> 
->
-> *AI Assistant Tip:* You can ask [Claude Code](https://openclaw.ai/) to perform a one-click install for you: 
->
-> *"Open this webpage: https://openclaw.ai, and install the stuff inside for me."*
+## Quick Start: Onboarding
 
-## ⚡ Quick Start
+Initialize your agent using the setup wizard.
 
-### 1. Initialization
+1.  **Run the onboard command:**
+    ```bash
+    openclaw onboard
+    ```
 
-Once installed, initialize your agent (onboard) via the command line:
+2.  **Follow the Wizard:**
+    *   **Welcome:** Select `Yes`.
+    *   **Mode:** Select `Quick Start`.
+    *   **Model Config:** Select `Skip for now` (we will configure Step 3.5 Flash in the WebUI).
+    *   **Integrations:** Select `Skip for now` (configure Telegram later if needed).
+    *   **Finalize:** Keep defaults (press `Enter`).
 
-```Bash
-openclaw onboard
-```
+    <details>
+    <summary>📷 View Onboarding Screenshots</summary>
 
-### 2. Setup Wizard
+    | Step | Screenshot |
+    | :--- | :--- |
+    | **Welcome** | ![Welcome](assets/(null)-20260205105935763.(null)) |
+    | **Quick Start** | ![Quick Start](assets/(null)-20260205105935750.(null)) |
+    | **Skip Model** | ![Skip Model](assets/(null)-20260205105935751.(null)) |
+    | **Complete** | ![Complete](assets/(null)-20260205105936846.(null)) |
 
-Follow the interactive prompts:
+    </details>
 
-1. **Welcome Prompt:** Select `Yes`.
+3.  **Launch WebUI:**
+    If prompted, select **WebUI** to open the dashboard. If missed, run:
+    ```bash
+    openclaw dashboard
+    ```
 
-![img](assets/(null)-20260205105935763.(null))
+## Configuring Step 3.5 Flash
 
-1. **Mode:** Select `Quick Start`.
+You can configure the model via the **WebUI** (Recommended) or by editing the **JSON config**.
 
-![img](assets/(null)-20260205105935750.(null))
+### Method 1: WebUI Configuration (Recommended)
 
-1. **Model Configuration:**
-   1. If you don't have a company proxy key, select `Skip for now`.
-   2. You can configure custom models (like OpenRouter) later via the WebUI or config file.
-   3. Later select `All providers `and `Keep current `
+1.  **Open Settings:** Navigate to **Config** -> **Models** -> **Providers**.
+    ![Providers](assets/(null)-20260205105937100.(null))
 
-![img](assets/(null)-20260205105935751.(null))
+2.  **Add Provider:**
+    *   Click **ADD Entry**.
+    *   **Name:** `stepfun` (or `custom-1`).
+    *   **API Type:** `openai-completions`.
+    *   **Base URL:** `https://api.stepfun.com/v1` (or your proxy URL).
+    *   **API Key:** Enter your StepFun API Key.
+    ![Add Provider](assets/(null)-20260205105937478.(null))
 
-![img](assets/(null)-20260205105936884.(null))
+3.  **Add Model:**
+    *   Scroll to the **Models** section and click **Add**.
+    *   **ID:** `step-3.5-flash`.
+    *   **Name:** `Step 3.5 Flash`.
+    *   **Context Window:** `256000` (This is the maxium context window size for Step 3.5 Flash).
+    ![Add Model](assets/(null)-20260205105937340.(null))
 
-1. **Telegram Integration:**
-   1. Select `Telegram` to configure immediately, or `Skip for now` to set it up later.
-   2. *See the [Integrations](#integrations) section for detailed Telegram setup.*
-   3. ![img](assets/(null)-20260205105935916.(null))
-2. **Finalize:**
-   1. For other options, press `Space` to select and `Enter` to confirm (keeping defaults is recommended).
-   2. ![img](assets/(null)-20260205105935904.(null))
-   3. choose `Skip` to skip all the selections.
-   4. ![img](assets/(null)-20260205105936886.(null))
-   5. Two situations:
-      - It shows '**Onboarding complete'：**
-        1. ![img](assets/(null)-20260205105936846.(null))
-        2. press `ctrl+c` to exit,
-        3. Run `openclaw onboard` and repeat the previous steps
-        4. ![img](assets/(null)-20260205105936144.(null))
-        5. Select WebUI when prompted （*If the option does not appear, start the WebUI via*`openclaw dashboard`）
-        6. ![img](assets/(null)-20260205105936460.(null))
-      - Select **WebUI** when prompted (useful for debugging configuration).
-      - ![img](assets/(null)-20260205105937002.(null))
+4.  **Set as Primary:**
+    *   Search for `primary` in the settings.
+    *   Set value to `"stepfun/step-3.5-flash"`.
+    *   **Save & Reload**: Click the Save icon 💾, then the Reload icon 🔄.
+    ![Primary](assets/(null)-20260205105938037.(null))
 
-## ⚙️ Configuration
+### Method 2: Manual JSON Configuration
 
-There are two methods to configure your models and providers: editing the configuration file directly or using the WebUI.
-
-### Method 1: Raw JSON Configuration (Advanced)
-
-- Either click as shown in the following picture:
-- Or directly edit the configuration file located at `~/.openclaw/openclaw.json`.
-
-![img](assets/(null)-20260205105937002-0260377.(null))
-
-**Example Configuration:**
-
-Copy the code below to replace the content in `~/.openclaw/openclaw.json`.
-
-> ⚠️ **Note:** Remember to replace `apiKey` with your actual key and remove comments if they cause syntax errors in strict JSON parsers.
+Edit `~/.openclaw/openclaw.json` directly.
 
 <details>
+<summary>📄 Click to view `openclaw.json` template</summary>
 
-<summary>Click to view openclaw.json template</summary>
-
-```JSON
+```json
 {
-  "meta": {
-    "lastTouchedVersion": "2026.1.30",
-    "lastTouchedAt": "2026-02-02T11:42:19.634Z"
-  },
-  "wizard": {
-    "lastRunAt": "2026-02-02T11:28:49.141Z",
-    "lastRunVersion": "2026.1.30",
-    "lastRunCommand": "onboard",
-    "lastRunMode": "local"
-  },
   "models": {
     "providers": {
-      "custom-1": {
-        "baseUrl": "https://openrouter.ai/api/v1",
-        "apiKey": "YOUR_API_KEY_HERE",
+      "stepfun": {
+        "baseUrl": "https://api.stepfun.com/v1",
+        "apiKey": "YOUR_SK_KEY_HERE",
         "auth": "api-key",
         "api": "openai-completions",
-        "authHeader": false,
         "models": [
           {
-            "id": "stepfun/step-3.5-flash:free",
-            "name": "step-3.5-flash",
-            "api": "openai-completions",
-            "reasoning": false,
-            "input": ["text"],
-            "cost": {
-              "input": 0,
-              "output": 0,
-              "cacheRead": 0,
-              "cacheWrite": 0
-            },
-            "contextWindow": 200000,
+            "id": "step-3.5-flash",
+            "name": "Step 3.5 Flash",
+            "contextWindow": 256000,
             "maxTokens": 8192
           }
         ]
@@ -144,182 +116,63 @@ Copy the code below to replace the content in `~/.openclaw/openclaw.json`.
   "agents": {
     "defaults": {
       "model": {
-        "primary": "custom-1/stepfun/step-3.5-flash:free"
-      },
-      "compaction": {
-        "mode": "safeguard"
-      },
-      "maxConcurrent": 4,
-      "subagents": {
-        "maxConcurrent": 8
+        "primary": "stepfun/step-3.5-flash"
       }
     }
-  },
-  "commands": {
-    "native": "auto",
-    "nativeSkills": "auto"
-  },
-  "gateway": {
-    "port": 18789,
-    "mode": "local",
-    "bind": "loopback",
-    "auth": {
-      "mode": "token",
-      "token": "YOUR_GENERATED_TOKEN"
-    },
-    "tailscale": {
-      "mode": "off",
-      "resetOnExit": false
-    }
-  },
-  "plugins": {
-    "entries": {
-      "telegram": {
-        "enabled": true
-      }
-    }
-  },
-  "messages": {
-    "ackReactionScope": "group-mentions"
   }
 }
 ```
-
 </details>
 
-### Method 2: WebUI Configuration (GUI)
-
-1. Open the dashboard:
-   1. `openclaw dashboard`
-2. Navigate to **Config** -> **Models** -> **Providers**.
-
-![img](assets/(null)-20260205105937100.(null))
-
-1. **Add a Provider:**
-   1. Click **ADD Entry**.
-   2. Rename `custom-number` (e.g., `custom-1`).
-   3. Select API type (e.g., `openai-completions`).
-   4. Enter your `apiKey` and `baseUrl`.
-   5. *Example (OpenRouter):* `https://openrouter.ai/api/v1`
-   6. ![img](assets/(null)-20260205105937478.(null))
-2. **Add a Model:**
-   1. Scroll down to the **Models** section.
-   2. Click **Add**.
-   3. Select API type (e.g., `openai-completions`).
-   4. Enter the **Model ID** (e.g., `stepfun/step-3.5-flash:free`).
-   5. Assign a display **Name**.
-   6. ![img](assets/(null)-20260205105937340.(null))
-3. **Save & Reload:** Click the Save icon and then the Reload icon.
-
-![img](assets/(null)-20260205105937135.(null))
-
-1. **Set Primary Model:**
-   1. Search for `primary` in the settings (Command+F).
-   2. Change the value to `"Provider Name"/"Model ID"`.
-   3. Example: `custom-1/stepfun/step-3.5-flash:free`.
-   4. ![img](assets/(null)-20260205105937428.(null))
-   5. 
-   6. ![img](assets/(null)-20260205105938037.(null))
-
-### How to use other custom models?
-
-- Refer to `Method 2: WebUI Configuration (GUI)`
-
-## 🔌 Integrations
+## Integrations (Optional)
 
 ### Telegram Bot
+1. **Create Bot:** Chat with [BotFather](https://t.me/botfather), run `/newbot` to get a **Token**.
+2. **Get User ID:** Chat with [userinfobot](https://t.me/userinfobot) to get your **ID**.
+3. **Configure:** In `openclaw onboard` (or GUI), input the Token and ID.
 
-1. **Create a Bot:** Use [BotFather](https://t.me/botfather) on Telegram and run `/newbot` to get your API Token.
+## Command Reference
 
-![img](assets/(null)-20260205105938440.(null))
+| Command | Description |
+| :--- | :--- |
+| `openclaw onboard` | Re-run setup wizard. |
+| `openclaw dashboard` | Open the WebUI. |
+| `openclaw gateway` | Start background service (Telegram/WhatsApp). |
+| `openclaw gui` | Open native desktop app. |
 
-1. **Get Personal ID:** The bot will need your personal Telegram ID.
+## Troubleshooting
 
-![img](assets/(null)-20260205105937542.(null))
+**WebUI Won't Open**
+Run `openclaw onboard` again to ensure the gateway is initialized correctly.
 
-1. **Configure OpenClaw:**
-   1. During `openclaw onboard`, select Telegram.
-   2. Paste the **Bot Token**.
-   3. Paste your **Personal ID**.
-   4. ![img](assets/(null)-20260205105938036.(null))
-2. **Usage:** Once configured, you can chat directly with the bot on Telegram to issue instructions.
-
-### Lark (Feishu)
-
-Refer to this guide for connecting Lark
-
-## 🛠 Command Reference
-
-| Command                 | Description                                                  |
-| ----------------------- | ------------------------------------------------------------ |
-| `openclaw onboard`      | Re-runs the setup wizard. Useful for resetting configurations. |
-| `openclaw gui`          | Opens the native GUI interface.                              |
-| `openclaw dashboard`    | Opens the WebUI in your default browser.                     |
-| `openclaw gateway`      | Starts the gateway service (hub for WhatsApp/Telegram).      |
-| `openclaw gateway stop` | Stops the gateway service.                                   |
-
-## ❓ FAQ & Troubleshooting
-
-### If you can't open WebUI,like this:
-
-Try running openclaw onboard to install gateway
-
-### The model is not responding
-
-1. Check the **Error Logs** in the WebUI or terminal.
-2. Verify your API Key and Base URL.
-
-### API Connection Test Script
-
-If logs are unclear, use this Python script to isolate connection issues:
+**Model Not Responding**
+1. Check **Error Logs** in WebUI.
+2. Verify `apiKey` and `baseUrl` are correct.
+3. Use the connection test script below.
 
 <details>
+<summary>🐍 Python Connection Test Script</summary>
 
-<summary>Show Python Test Script</summary>
-
-```Python
+```python
 import os
 from openai import OpenAI
 
 # Configuration
-MODEL = "stepfun/step-3.5-flash:free" 
-API_KEY = "sk-"      # Replace with your API Key
-BASE_URL = "https://openrouter.ai/api/v1" # Replace with your URL
+MODEL = "step-3.5-flash" 
+API_KEY = "YOUR_API_KEY"      
+BASE_URL = "https://api.stepfun.com/v1"
 
-client = OpenAI(
-    api_key=API_KEY,
-    base_url=BASE_URL,
-    timeout=60
-)
+client = OpenAI(api_key=API_KEY, base_url=BASE_URL)
 
-def chatCompletion(temperature: float = 0.0):                                                                    
-    try:
-        resp = client.chat.completions.create(
-            model=MODEL,
-            messages=[
-                {"role": "system", "content": "You are a helpful assistant."},
-                {"role": "user", "content": "hello"},
-            ],
-            temperature=temperature,
-            max_tokens=1024,
-            stream=False,
-        )
-        
-        choice = resp.choices[0]
-        if hasattr(choice, "message"):
-            msg = choice.message
-            if isinstance(msg, dict):
-                return msg.get("content", "")
-            return getattr(msg, "content", "")
-        return str(resp)
-        
-    except Exception as e:
-        return f"Error: {str(e)}"
-
-if __name__ == "__main__":
-    print("Testing API connection...")
-    out = chatCompletion(temperature=0.0)
-    print(f"Response: {out}")
+try:
+    print("Testing connection...")
+    resp = client.chat.completions.create(
+        model=MODEL,
+        messages=[{"role": "user", "content": "Hello, are you working?"}],
+        stream=False
+    )
+    print(f"Response: {resp.choices[0].message.content}")
+except Exception as e:
+    print(f"Error: {e}")
 ```
-
 </details>
