@@ -1,5 +1,9 @@
 # Claude Code + Step 3.5 Flash 最佳实践指南
 
+<p align="center">
+    <a href="README.en.md">English</a>&nbsp; | &nbsp;<strong>简体中文</strong>
+</p>
+
 ## 📖 概述
 
 本文档提供了将 Claude Code 与 Step 3.5 Flash 结合使用的完整指南和最佳实践。通过编写高效的 CLAUDE.md 配置、配置 MCP 服务、Skills 插件和 Sub-agents，您可以显著提升 AI Agent 的开发效率和智能化水平。
@@ -883,7 +887,6 @@ npx tsx scripts/codemaps/generate.ts
 name: doc-updater
 description: Documentation and codemap specialist. Use PROACTIVELY for updating codemaps and documentation. Runs /update-codemaps and /update-docs, generates docs/CODEMAPS/*, updates READMEs and guides.
 tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
-model: opus
 ---
 
 # Documentation & Codemap Specialist
@@ -1114,11 +1117,6 @@ Before committing documentation:
     ├── refactor-cleaner.md   # 重构清理专家
     └── doc-updater.md        # 文档维护专家
 ```
-
-**参考资源**：
-- [Code Reviewer 完整配置](https://github.com/affaan-m/everything-claude-code/blob/main/agents/code-reviewer.md)
-- [Refactor Cleaner 完整配置](https://github.com/affaan-m/everything-claude-code/blob/main/agents/refactor-cleaner.md)
-- [Doc Updater 完整配置](https://github.com/affaan-m/everything-claude-code/blob/main/agents/doc-updater.md)
 
 ---
 
