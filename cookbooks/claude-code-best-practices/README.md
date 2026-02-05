@@ -651,7 +651,7 @@ npx tsx scripts/codemaps/generate.ts
 **实施标准**：
 
 **Codemap 格式示例**：
-```markdown
+````markdown
 # [Module Name] Codemap
 
 **Last Updated:** 2026-02-05
@@ -679,7 +679,7 @@ npx tsx scripts/codemaps/generate.ts
 ## External Dependencies
 - express: ^4.18.0
 - typescript: ^5.0.0
-```
+````
 
 **文档维护触发条件**：
 
@@ -699,7 +699,7 @@ npx tsx scripts/codemaps/generate.ts
 
 创建 `.claude/agents/doc-updater.md`：
 
-```markdown
+````markdown
 ---
 name: doc-updater
 description: Documentation and codemap specialist. Use PROACTIVELY for updating codemaps and documentation. Runs /update-codemaps and /update-docs, generates docs/CODEMAPS/*, updates READMEs and guides.
@@ -888,7 +888,7 @@ Before committing documentation:
 ---
 
 **Remember**: Documentation that doesn't match reality is worse than no documentation. Always generate from source of truth (the actual code).
-```
+````
 
 **使用示例**：
 
