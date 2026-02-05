@@ -1,0 +1,10 @@
+# .gitignore
+__pycache__/
+*.pyc
+.DS_Store
+.env
+
+# Ignorer toutes les données locales générées par l'agent
+data/
+chroma/
+*.log
