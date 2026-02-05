@@ -4,13 +4,9 @@ base_model:
   - stepfun-ai/step-3.5-flash
 --- -->
 
-# Step 3.5 Flash
 
 <div align="center">
-  
-<div align="center" style="display: flex; justify-content: center; align-items: center;">
-  <img src="assets/stepfun.svg" width="25" style="margin-right: 10px;"/>
-  <h1 style="margin: 0; border-bottom: none;">Step 3.5 Flash</h1>
+  <h1 style="margin: 0; border-bottom: none;"><img src="assets/stepfun.svg" width="25" style="margin-right: 10px;"/> Step 3.5 Flash</h1>
 </div>
 
 <p align="center">
