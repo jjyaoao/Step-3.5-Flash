@@ -60,13 +60,10 @@ Performance of Step 3.5 Flash measured across **Reasoning**, **Coding**, and **A
 ### Detailed Benchmarks
 
 | Benchmark | Step 3.5 Flash | DeepSeek V3.2 | Kimi K2 Thinking / K2.5 | GLM-4.7 | MiniMax M2.1 | MiMo-V2 Flash |
-|---|---|---|---|---|---|---|
-
-| Benchmark | Step 3.5 Flash | DeepSeek V3.2 | Kimi K2 Thinking / K2.5 | GLM-4.7 | MiniMax M2.1 | MiMo-V2 Flash |
 | --- | --- | --- | --- | --- | --- | --- |
 | # Activated Params | 11B | 37B | 32B | 32B | 10B | 15B |
 | # Total Params (MoE) | 196B | 671B | 1T | 355B | 230B | 309B |
-| Est. decoding cost @ 128K context, Hopper GPU** | 1.0x<br>100 tok/s, MTP-3, EP8 | 6.0x<br>33 tok/s, MTP-1, EP32 | 18.9x<br>33 tok/s, no MTP, EP32 | 18.9x<br>100 tok/s, MTP-3, EP8 | 3.9x<br>100 tok/s, MTP-3, EP8 | 1.2x<br>100 tok/s, MTP-3, EP8 |
+| Est. decoding cost @ 128K context, Hopper GPU** | **1.0x**<br>100 tok/s, MTP-3, EP8 | **6.0x**<br>33 tok/s, MTP-1, EP32 | **18.9x**<br>33 tok/s, no MTP, EP32 | **18.9x**<br>100 tok/s, MTP-3, EP8 | **3.9x**<br>100 tok/s, MTP-3, EP8 | **1.2x**<br>100 tok/s, MTP-3, EP8 |
 | | | | **Agent** | | | |
 | τ²-Bench | 88.2 | 80.3 (85.2*) | 74.3*/85.4* | 87.4 | 86.6* | 80.3 (84.1*) |
 | BrowseComp | 51.6 | 51.4 | 41.5* / 60.6 | 52.0 | 47.4 | 45.4 |
