@@ -1,0 +1,11 @@
+# AI简历分析助手 - 依赖包列表
+
+# 智能体框架
+hello-agents
+
+# PDF解析（包含PDF支持）
+markitdown[pdf]
+
+# Web界面
+gradio
+
