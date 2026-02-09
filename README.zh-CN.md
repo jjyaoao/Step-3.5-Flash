@@ -322,12 +322,13 @@ print(output_text)
 - 推荐：128GB 统一内存
 
 #### 步骤
-1. 使用[llama.cpp](llama.cpp/docs/step3.5-flash.md):
-    ```bash
-    git clone git@github.com:stepfun-ai/Step-3.5-Flash.git
-    cd Step-3.5-Flash/llama.cpp
-    ```
-2. Mac 上构建 llama.cpp：
+1. 使用官方 llama.cpp:
+> `Step-3.5-Flash/tree/main/Llama.cpp` 已废弃
+```bash
+git clone https://github.com/ggml-org/llama.cpp
+cd llama.cpp
+```
+3. Mac 上构建 llama.cpp：
    ```bash
    cmake -S . -B build-macos \
      -DCMAKE_BUILD_TYPE=Release \
@@ -338,7 +339,7 @@ print(output_text)
      -DGGML_LTO=ON
    cmake --build build-macos -j8
    ```
-3. DGX-Spark 上构建 llama.cpp：
+4. DGX-Spark 上构建 llama.cpp：
    ```bash
    cmake -S . -B build-cuda \
      -DCMAKE_BUILD_TYPE=Release \
@@ -349,7 +350,7 @@ print(output_text)
      -DLLAMA_BUILD_COMMON=ON
    cmake --build build-cuda -j8
    ```
-4. AMD Windows 上构建 llama.cpp：
+5. AMD Windows 上构建 llama.cpp：
    ```bash
    cmake -S . -B build-vulkan \
      -DCMAKE_BUILD_TYPE=Release \
@@ -358,11 +359,11 @@ print(output_text)
      -DGGML_VULKAN=ON
    cmake --build build-vulkan -j8
    ```
-5. 使用 llama-cli 运行：
+6. 使用 llama-cli 运行：
    ```bash
    ./llama-cli -m step3.5_flash_Q4_K_S.gguf -c 16384 -b 2048 -ub 2048 -fa on --temp 1.0 -p "你叫什么名字？"
    ```
-6. 使用 llama-batched-bench 测试性能：
+7. 使用 llama-batched-bench 测试性能：
    ```bash
    ./llama-batched-bench -m step3.5_flash_Q4_K_S.gguf -c 32768 -b 2048 -ub 2048 -npp 0,2048,8192,16384,32768 -ntg 128 -npl 1
    ```

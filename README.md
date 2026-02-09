@@ -315,10 +315,11 @@ print(output_text)
 - Minimum VRAM: 120 GB (e.g., Mac studio, DGX-Spark, AMD Ryzen AI Max+ 395)
 - Recommended: 128GB unified memory
 #### Steps
-1. Use [llama.cpp](llama.cpp/docs/step3.5-flash.md):
+1. Use official llama.cpp:
+> the folder `Step-3.5-Flash/tree/main/llama.cpp` is **obsolete**
 ```bash
-git clone git@github.com:stepfun-ai/Step-3.5-Flash.git
-cd Step-3.5-Flash/llama.cpp
+git clone https://github.com/ggml-org/llama.cpp
+cd llama.cpp
 ```
 2. Build llama.cpp on Mac:
 ```bash
